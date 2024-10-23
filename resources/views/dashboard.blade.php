@@ -23,7 +23,7 @@ class DashboardData
 
     public function getLowStockItems()
     {
-        return $this->organization->inventories()->where('quantity', '<=', 10)->count();
+        return $this->organization->inventories()->where('quantity', '<=', 5)->count();
     }
 
     public function getPrescriptionsToday()
