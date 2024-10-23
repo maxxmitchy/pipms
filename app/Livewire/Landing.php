@@ -13,7 +13,7 @@ class Landing extends Component
     {
 
         $user = User::find(1);
-        $user->assignRole('admin');
+        $user->assignRole('super-admin');
         $user->assignRole('pharmacist');
 
         return view('livewire.landing');
