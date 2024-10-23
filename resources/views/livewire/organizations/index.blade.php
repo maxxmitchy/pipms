@@ -17,7 +17,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex-1 pr-4">
                             <div class="relative">
-                                <input wire:model.debounce.300ms="search" type="text" class="w-full py-2 pl-10 pr-4 font-medium text-gray-600 rounded-lg shadow focus:outline-none focus:shadow-outline" placeholder="Search organizations...">
+                                <input wire:model.live="search" type="text" class="w-full py-2 pl-10 pr-4 font-medium text-gray-600 rounded-lg shadow focus:outline-none focus:shadow-outline" placeholder="Search organizations...">
                                 <div class="absolute top-0 left-0 inline-flex items-center p-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
