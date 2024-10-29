@@ -1,42 +1,41 @@
-<div class="min-h-screen py-8 bg-gray-100 dark:bg-gray-900">
+<div class="min-h-screen py-8 bg-gray-50 dark:bg-gray-900">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-            <div class="px-6 py-4 bg-gray-600 border-b border-gray-200 dark:border-gray-700">
+        <div class="overflow-hidden bg-white shadow-lg rounded-2xl dark:bg-gray-800">
+            <div class="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-blue-500 to-blue-600 dark:border-gray-700">
                 <h2 class="text-2xl font-bold text-white">Medications</h2>
             </div>
 
             <div class="p-6">
                 @if (session()->has('message'))
-                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="p-4 mb-4 text-green-700 bg-green-100 border-l-4 border-green-500 rounded" role="alert">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="p-4 mb-4 text-green-700 bg-green-100 border-l-4 border-green-500 rounded-r-lg" role="alert">
                         <p class="font-bold">Success!</p>
                         <p>{{ session('message') }}</p>
                     </div>
                 @endif
 
                 @if (session()->has('error'))
-                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="p-4 mb-4 text-red-700 bg-red-100 border-l-4 border-red-500 rounded" role="alert">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="p-4 mb-4 text-red-700 bg-red-100 border-l-4 border-red-500 rounded-r-lg" role="alert">
                         <p class="font-bold">Error!</p>
                         <p>{{ session('error') }}</p>
                     </div>
                 @endif
 
-                <div class="flex flex-col items-start justify-between mb-6 space-y-4 sm:flex-row sm:space-y-0">
-                    <div class="flex items-center space-x-8">
+                <div class="flex flex-col items-start justify-between mb-6 space-y-4 sm:flex-row sm:space-y-0 sm:items-center">
+                    <div class="flex items-center space-x-4">
                         @can('create', App\Models\Medication::class)
-                            <a href="{{ route('medications.create') }}" class="px-6 py-3 text-white transition duration-150 ease-in-out bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            <a href="{{ route('medications.create') }}" class="px-6 py-2 text-white transition duration-300 ease-in-out bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                                 <span class="flex items-center justify-center">
                                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                                    New
+                                    New Med.
                                 </span>
                             </a>
                         @endcan
 
-                        <div class="flex space-x-2">
-                            <span class="text-gray-700 dark:text-gray-300">View:</span>
-                            <button wire:click="setView('table')" class="px-3 py-1 text-sm {{ $view === 'table' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700' }} rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="flex p-1 bg-gray-200 rounded-lg dark:bg-gray-700">
+                            <button wire:click="setView('table')" class="px-4 py-2 text-sm font-medium transition-colors duration-200 {{ $view === 'table' ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800 dark:text-blue-400' : 'text-gray-600 dark:text-gray-300' }} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 Table
                             </button>
-                            <button wire:click="setView('card')" class="px-3 py-1 text-sm {{ $view === 'card' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700' }} rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <button wire:click="setView('card')" class="px-4 py-2 text-sm font-medium transition-colors duration-200 {{ $view === 'card' ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800 dark:text-blue-400' : 'text-gray-600 dark:text-gray-300' }} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 Cards
                             </button>
                         </div>
@@ -47,7 +46,7 @@
                             wire:model.live="search"
                             type="text"
                             placeholder="Search medications..."
-                            class="w-full px-4 py-2 pl-10 pr-4 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600 dark:focus:ring-blue-500"
+                            class="w-full px-4 py-2 pl-10 pr-4 text-gray-900 transition duration-300 ease-in-out border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600 dark:focus:ring-blue-500"
                         >
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3">
                             <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +59,7 @@
                 @if($view === 'card')
                     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         @foreach ($medications as $medication)
-                            <div class="overflow-hidden transition-shadow duration-300 bg-white rounded-lg shadow-md dark:bg-gray-700 hover:shadow-lg">
+                            <div class="overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-md dark:bg-gray-700 hover:shadow-lg">
                                 <div class="p-6">
                                     <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">{{ $medication->name }}</h3>
                                     <p class="mb-4 text-gray-600 dark:text-gray-300">{{ Str::limit($medication->description, 100) }}</p>
@@ -79,9 +78,9 @@
                                         </div>
                                     </div>
                                     <div class="flex justify-end mt-4 space-x-2">
-                                        <a href="{{ route('medications.edit', $medication) }}" class="px-4 py-2 text-blue-600 transition-colors duration-300 bg-blue-100 rounded hover:bg-blue-200">Edit</a>
+                                        <a href="{{ route('medications.edit', $medication) }}" class="px-4 py-2 text-blue-600 transition-colors duration-300 bg-blue-100 rounded-md hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-300 dark:hover:bg-blue-800">Edit</a>
                                         @can('delete', $medication)
-                                            <button wire:click="confirmDelete({{ $medication->id }})" class="px-4 py-2 text-red-600 transition-colors duration-300 bg-red-100 rounded hover:bg-red-200">Delete</button>
+                                            <button wire:click="confirmDelete({{ $medication->id }})" class="px-4 py-2 text-red-600 transition-colors duration-300 bg-red-100 rounded-md hover:bg-red-200 dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800">Delete</button>
                                         @endcan
                                     </div>
                                 </div>
@@ -148,7 +147,7 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                                 @foreach ($medications as $medication)
-                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <tr class="transition-colors duration-200 hover:bg-gray-50 dark:hover:bg-gray-700">
                                         <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-gray-100">
                                             {{ $medication->name }}
                                         </td>
@@ -162,9 +161,9 @@
                                             {{ $medication->brand->name ?? 'Generic' }}
                                         </td>
                                         <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
-                                            <a href="{{ route('medications.edit', $medication) }}" class="mr-3 text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300">Edit</a>
+                                            <a href="{{ route('medications.edit', $medication) }}" class="mr-3 text-blue-600 transition-colors duration-200 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">Edit</a>
                                             @can('delete', $medication)
-                                                <button wire:click="confirmDelete({{ $medication->id }})" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300">Delete</button>
+                                                <button wire:click="confirmDelete({{ $medication->id }})" class="text-red-600 transition-colors duration-200 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300">Delete</button>
                                             @endcan
                                         </td>
                                     </tr>

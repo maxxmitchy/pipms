@@ -71,7 +71,7 @@
                                     <div class="mt-2 space-y-2">
                                         @foreach($roles as $role)
                                             <label class="inline-flex items-center">
-                                                <input type="checkbox" wire:model="selectedRoles" value="{{ $role->name }}" class="w-5 h-5 text-indigo-600 form-checkbox">
+                                                <input type="checkbox" wire:model.live="selectedRoles" value="{{ $role->name }}" class="w-5 h-5 text-indigo-600 form-checkbox">
                                                 <span class="ml-2 text-gray-700">{{ $role->name }}</span>
                                             </label>
                                         @endforeach
@@ -82,7 +82,7 @@
                                     <div class="mt-2 space-y-2 overflow-y-auto max-h-60">
                                         @foreach($permissions as $permission)
                                             <label class="inline-flex items-center">
-                                                <input type="checkbox" wire:model="selectedPermissions" value="{{ $permission->name }}" class="w-5 h-5 text-indigo-600 form-checkbox">
+                                                <input type="checkbox" wire:model.live="selectedPermissions" value="{{ $permission->name }}" class="w-5 h-5 text-indigo-600 form-checkbox">
                                                 <span class="ml-2 text-gray-700">{{ $permission->name }}</span>
                                             </label>
                                         @endforeach
