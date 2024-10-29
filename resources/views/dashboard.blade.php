@@ -190,7 +190,7 @@ $expiringProducts = $dashboardData->getExpiringMedications()
                             </div>
                             <div class="px-5 py-3 bg-gray-50 dark:bg-gray-700">
                                 <div class="text-sm">
-                                    <a href="{{ route('medications.expiring', ['organization' => auth()->user()->organization]) }}" class="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">View all</a>
+                                    <a href="{{ route('medications.expiring') }}" class="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">View all</a>
                                 </div>
                             </div>
                         </div>
@@ -308,6 +308,10 @@ $expiringProducts = $dashboardData->getExpiringMedications()
                         </div>
                     </div>
                 </div>
+
+
+                {{-- Organization specific data --}}
+
             </main>
         </div>
     </div>

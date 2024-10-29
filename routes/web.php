@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Middleware\CheckRole;
 use App\Livewire\Inventory\Create as InventoryCreate;
 use App\Livewire\Inventory\Edit as InventoryEdit;
 use App\Livewire\Inventory\Index as InventoryIndex;
@@ -25,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/medications', MedicationsIndex::class)->name('medications.index');
     Route::get('/medications/create', MedicationsCreate::class)->name('medications.create');
     Route::get('/medications/{medication}/edit', MedicationsEdit::class)->name('medications.edit');
-    Route::get('/medications/{organization}/expiring', Expiring::class)->name('medications.expiring');
+    Route::get('/medications/expiring', Expiring::class)->name('medications.expiring');
 
     Route::get('/prescriptions', PrescriptionsIndex::class)->name('prescriptions.index');
     Route::get('/prescriptions/create', PrescriptionsCreate::class)->name('prescriptions.create');

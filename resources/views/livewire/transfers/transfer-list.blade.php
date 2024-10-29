@@ -3,7 +3,7 @@
         <h2 class="mb-4 text-2xl font-semibold text-gray-900 dark:text-white">Transfer History</h2>
 
         <div class="mb-4">
-            <input wire:model.debounce.300ms="search" type="text" placeholder="Search transfers..." class="w-full px-4 py-2 text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600">
+            <input wire:model.live="search" type="text" placeholder="Search transfers..." class="w-full px-4 py-2 text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600">
         </div>
 
         <div class="overflow-x-auto">
